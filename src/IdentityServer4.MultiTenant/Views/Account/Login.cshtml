@@ -1,0 +1,18 @@
+﻿@using IdentityServer4.MultiTenant.ViewModels
+@model IdentityServer4.MultiTenant.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = $"Login - {Model.Tenant}";
+    Layout = "_Layout";
+}
+
+<h2>@($"Login - {Model.Tenant}")</h2>
+<form asp-controller="Account" asp-action="Login" method="post">
+    Username: <input asp-for="Username"/> <br />
+    Password: <input asp-for="Password" /><br />
+    
+
+    <button type="submit">Login</button>
+    
+    <input asp-for="ReturnUrl" type="hidden"/>
+</form>
